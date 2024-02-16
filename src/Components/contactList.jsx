@@ -1,8 +1,10 @@
 import { React } from 'react';
 
-export default function ContactList() { 
+function ContactList({contacts}) { 
 
   return ( 
+    <div>
+      <h2>Contact List</h2>
         <table>
           <thead>
             <tr>
@@ -16,9 +18,11 @@ export default function ContactList() {
               <td>Phone</td>
             </tr>
             {
-               // Map 
-             }
+              // Map 
+            }
           </tbody>
         </table>
+    </div>
     ); 
 }
+export default ContactList
