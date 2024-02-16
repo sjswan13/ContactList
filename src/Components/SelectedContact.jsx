@@ -9,7 +9,7 @@ const SelectedContact = (props) => {
             <h2>Address</h2>
             <p>Street: {props.contact.address.street}</p>
             <p>Company: {props.contact.company.name}</p>
-            <button onClick={() => contact.setSelectedContactId(null)}>Back</button>
+            <button onClick={() => props.setSelectedContact(null)}>Back</button>
         </div>
     );
 };
