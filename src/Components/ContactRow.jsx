@@ -1,8 +1,13 @@
+import React from 'react';
 
-function ContactRow({ contact }) {
-  console.log(contact, "contact")
+export default function ContactRow({ setSelectedContactId, contact }) {
+
   return (
-    <tr>
+    <tr 
+    onClick={() => {
+      setSelectedContactId(contact.id);
+    }}
+    >
       <td>{contact.name}</td>      
       <td>{contact.email}</td>      
       <td>{contact.phone}</td>      
@@ -10,4 +15,4 @@ function ContactRow({ contact }) {
   );
 }
 
-export default ContactRow
+

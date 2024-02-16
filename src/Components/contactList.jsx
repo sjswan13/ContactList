@@ -10,21 +10,22 @@ const dummyContacts = [
     { id: 3, name: "BB-8", phone: "888-888-8888", email: "bb8@droids.com" },
   ];
 
-export default function ContactList() { 
+export default function ContactList({ setSelectedContactId }) { 
   const [contacts, setContacts] = useState(dummyContacts);
+
    useEffect(() => {
     async function fetchContacts() {
       try {
         const response = await fetch(contactAPI + '/users');
           const result = await response.json();
           setContacts(result);
-        
       } catch (error) {
         console.error(error, "trouble fetching contacts")
       }
     }
     fetchContacts()
    }, []);
+
   return ( 
     <div>
       <h2>Contact List</h2>
@@ -41,7 +42,13 @@ export default function ContactList() {
               <td>Phone</td>
             </tr>
             {contacts.map((contact) => {
-              return <ContactRow key={contact.id} contact={contact} />;
+              return (
+              <ContactRow 
+              key={contact.id} 
+              contact={contact} 
+              setSelectedContactId={setSelectedContactId}
+              />
+              );
             })}
           </tbody>
         </table>
