@@ -1,5 +1,6 @@
 
 function ContactRow({ contact }) {
+  console.log(contact, "contact")
   return (
     <tr>
       <td>{contact.name}</td>      
