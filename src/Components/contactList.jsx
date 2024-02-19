@@ -11,14 +11,15 @@ const dummyContacts = [
   ];
 
 export default function ContactList({ setSelectedContactId }) { 
-  const [contacts, setContacts] = useState(dummyContacts);
+  const [contacts, setContacts] = useState([]);
 
    useEffect(() => {
     async function fetchContacts() {
       try {
         const response = await fetch(contactAPI + '/users');
-          const result = await response.json();
+        const result = await response.json();
           setContacts(result);
+          
       } catch (error) {
         console.error(error, "trouble fetching contacts")
       }
